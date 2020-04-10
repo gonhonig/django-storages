@@ -371,6 +371,10 @@ class S3Boto3Storage(BaseStorage):
                 endpoint_url=self.endpoint_url,
                 config=self.config,
                 verify=self.verify,
+                max_concurrent_requests = 20,
+                max_queue_size = 10000,
+                multipart_threshold = 64MB,
+                multipart_chunksize = 16MB
             )
         return self._connections.connection
 
